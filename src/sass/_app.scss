@@ -1,0 +1,16 @@
+.page_container {
+  display: flex;
+  flex-direction: row;
+  background-color: #f7f4ff;
+}
+
+.page_category {
+  display: flex;
+  flex-direction: column;
+  margin-left: 71px;
+
+  &_greeting {
+    font-size: 24px;
+    margin: 41px auto 51px 0;
+  }
+}
