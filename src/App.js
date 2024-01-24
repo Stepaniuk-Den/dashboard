@@ -4,14 +4,22 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Loader from "./components/Loader/Loader";
 
-const Customers = lazy(() => import("./components/Customers/Customers"));
+const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
 const Product = lazy(() => import("./components/Product/Product"));
+const Customers = lazy(() => import("./components/Customers/Customers"));
 const Income = lazy(() => import("./components/Income/Income"));
 const Promote = lazy(() => import("./components/Promote/Promote"));
 const Help = lazy(() => import("./components/Help/Help"));
 
 function App() {
-  const categories = ["Product", "Customers", "Income", "Promote", "Help"];
+  const categories = [
+    "Dashboard",
+    "Product",
+    "Customers",
+    "Income",
+    "Promote",
+    "Help",
+  ];
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   const handleSelectedCategory = (category) => {
@@ -20,6 +28,8 @@ function App() {
 
   const getCategoryComponent = (category) => {
     switch (category) {
+      case "Dashboard":
+        return <Dashboard />;
       case "Product":
         return <Product />;
       case "Customers":
