@@ -1,1 +1,1 @@
-import "./Customers.jsx";
+export { default } from "./Customers";

@@ -1,1 +1,1 @@
-import "./Income.jsx";
+export { default } from "./Income";

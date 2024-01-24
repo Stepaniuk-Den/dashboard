@@ -1,1 +1,1 @@
-import "./Promote.jsx";
+export { default } from "./Promote.jsx";

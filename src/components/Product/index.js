@@ -1,1 +1,1 @@
-import "./Product.jsx";
+export { default } from "./Product.jsx";

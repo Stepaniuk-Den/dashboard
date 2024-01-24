@@ -1,1 +1,1 @@
-import "./Dashboard.jsx";
+export { default } from "./Dashboard";

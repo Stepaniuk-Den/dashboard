@@ -1,1 +1,1 @@
-import "./Sidebar";
+export { default } from "./Sidebar";

@@ -32,10 +32,37 @@
   }
 }
 
+.sidebar_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 250px;
+}
+
+[class*="_link"] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 11px 8px 11px 11px;
+}
+
 .inactive_link {
   color: #9197b3;
 }
 
 .active_link {
-  color: #9197b3;
+  color: #ffffff;
+  border-radius: 8px;
+  background: #5932ea;
+}
+
+[class*="sidebar_icon"] {
+  margin-right: 14px;
+}
+
+.sidebar_chevron {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
 }

@@ -1,1 +1,1 @@
-import "./Contact.jsx";
+export { default } from "./Contact";

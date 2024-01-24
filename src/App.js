@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Loader from "./components/Loader/Loader";
 
-const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
-const Product = lazy(() => import("./components/Product/Product"));
-const Customers = lazy(() => import("./components/Customers/Customers"));
-const Income = lazy(() => import("./components/Income/Income"));
-const Promote = lazy(() => import("./components/Promote/Promote"));
-const Help = lazy(() => import("./components/Help/Help"));
+const Dashboard = lazy(() => import("./components/Dashboard"));
+const Product = lazy(() => import("./components/Product"));
+const Customers = lazy(() => import("./components/Customers"));
+const Income = lazy(() => import("./components/Income"));
+const Promote = lazy(() => import("./components/Promote"));
+const Help = lazy(() => import("./components/Help"));
 
 function App() {
   const categories = [
@@ -52,6 +52,7 @@ function App() {
           <Sidebar
             categories={categories}
             onSelectedCategory={handleSelectedCategory}
+            selectedCategory={selectedCategory}
           />
           <div className="page_category">
             <p className="page_category_greeting">Hello Evano 👋🏼,</p>
