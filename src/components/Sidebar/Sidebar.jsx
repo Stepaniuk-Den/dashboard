@@ -5,17 +5,29 @@ import { ReactComponent as Setting } from "../../assets/images/setting 1.svg";
 import Icon from "../../assets/icons/icons.svg";
 
 const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
-  const Icons = (category, className = "sidebar_icon", stroke = "#9197B3") => {
+  const Icons = (category, className = "sidebar_icon") => {
     const categoryLowerCase = category.replace(/\s+/g, "-").toLowerCase();
     return (
       <svg
         width="24"
         height="24"
         className={className}
-        stroke={stroke}
-        // stroke={category === selectedCategory ? "#FFFFFF" : "#9197B3"}
+        stroke={category === selectedCategory ? "#FFFFFF" : "#9197B3"}
       >
         <use href={Icon + `#icon-${categoryLowerCase}`} />
+      </svg>
+    );
+  };
+
+  const IconsBroken = (category) => {
+    const categoryLowerCase = category.replace(/\s+/g, "-").toLowerCase();
+    return (
+      <svg width="24" height="24" className="sidebar_icon">
+        {category === selectedCategory ? (
+          <use href={Icon + `#icon-${categoryLowerCase}-white`} />
+        ) : (
+          <use href={Icon + `#icon-${categoryLowerCase}`} />
+        )}
       </svg>
     );
   };
@@ -25,15 +37,15 @@ const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
       case "Dashboard":
         return Icons(category);
       case "Product":
-        return Icons(category);
+        return IconsBroken(category);
       case "Customers":
-        return Icons(category);
+        return IconsBroken(category);
       case "Income":
         return Icons(category);
       case "Promote":
-        return Icons(category);
+        return IconsBroken(category);
       case "Help":
-        return Icons(category);
+        return IconsBroken(category);
       default:
         return null;
     }
@@ -57,14 +69,16 @@ const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
               }}
             >
               {getCategoryIcon(category)}
-              {/* {Icons(category)} */}
               {category}
-              {/* {category !== "Dashboard" &&
-                (category !== selectedCategory ? (
-                  <ChevronGrey className="sidebar_chevron" />
-                ) : (
-                  <ChevronWhite className="sidebar_chevron" />
-                ))} */}
+              {category !== "Dashboard" && (
+                <svg width="24" height="24" className="sidebar_chevron">
+                  {category === selectedCategory ? (
+                    <use href={Icon + `#icon-chevron-white`} />
+                  ) : (
+                    <use href={Icon + `#icon-chevron`} />
+                  )}
+                </svg>
+              )}
             </NavLink>
           </li>
         ))}
