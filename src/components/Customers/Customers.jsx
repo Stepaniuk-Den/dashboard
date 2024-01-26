@@ -4,40 +4,10 @@ import Stack from "@mui/material/Stack";
 
 import contacts from "../../data/contacts";
 import Button from "../Button/Button";
+import style from "../../mui/muiPagination";
 import { ReactComponent as Search } from "../../assets/icons/search 1.svg";
 
 const Customers = () => {
-  const style = {
-    "Button.MuiPaginationItem-rounded.Mui-selected": {
-      color: "#FFF",
-      fontFamily: "Poppins, sans-serif",
-      fontSize: "12px",
-      fontStyle: "normal",
-      fontWeight: "500",
-      lineHeight: "100%" /* 12px */,
-      letterSpacing: "-0.12px",
-      width: "25px",
-      height: "25px",
-      borderRadius: "4px",
-      border: "1px solid #5932EA",
-      background: " #5932EA",
-    },
-    "Button.MuiPaginationItem-rounded": {
-      color: "#404B52",
-      fontFamily: "Poppins, sans-serif",
-      fontSize: "12px",
-      fontStyle: "normal",
-      fontWeight: "500",
-      lineHeight: "100%" /* 12px */,
-      letterSpacing: "-0.12px",
-      width: "25px",
-      height: "25px",
-      borderRadius: "4px",
-      border: "1px solid #EEE",
-      background: " #F5F5F5",
-    },
-  };
-
   return (
     <div className="customers_wrapper">
       <div className="customers_category">
@@ -83,7 +53,7 @@ const Customers = () => {
       </ul>
       <div className="customers_pagination">
         <p>Showing data 1 to 8 of 256K entries</p>
-        <Stack spacing={2}>
+        <Stack spacing={4}>
           <Pagination
             count={40}
             variant="outlined"

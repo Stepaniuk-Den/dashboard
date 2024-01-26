@@ -1,8 +1,14 @@
-import React, { Suspense, lazy, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { Suspense, lazy, useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import Loader from "./components/Loader/Loader";
+import Layout from "./components/Layout/Layout";
 
 const Dashboard = lazy(() => import("./components/Dashboard"));
 const Product = lazy(() => import("./components/Product"));
@@ -20,7 +26,7 @@ function App() {
     "Promote",
     "Help",
   ];
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const handleSelectedCategory = (category) => {
     setSelectedCategory(category);
@@ -45,6 +51,12 @@ function App() {
     }
   };
 
+  // useEffect(() => {
+  //   if (!selectedCategory) {
+  //     window.location.href = "/";
+  //   }
+  // }, [selectedCategory]);
+
   return (
     <Suspense fallback={<Loader />}>
       <Router>
@@ -57,10 +69,14 @@ function App() {
           <div className="page_category">
             <p className="page_category_greeting">Hello Evano 👋🏼,</p>
             <Routes>
+              {/* <Route path="/" element={<Layout />}> */}
+              <Route index element={<Layout />} />
               <Route
                 path="/:category"
                 element={getCategoryComponent(selectedCategory)}
               />
+              <Route path="*" element={<Navigate to="/" replace />} />
+              {/* </Route> */}
             </Routes>
           </div>
         </div>

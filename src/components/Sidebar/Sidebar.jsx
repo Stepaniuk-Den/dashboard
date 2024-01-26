@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { ReactComponent as Setting } from "../../assets/icons/setting 1.svg";
 import Icon from "../../assets/icons/icons.svg";
-import avatar from "../../assets/images/avatar.png";
+import avatar from "../../assets/images/avatar.webp";
 
 const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
   const Icons = (category, className = "sidebar_icon") => {
