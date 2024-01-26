@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 54px;
 
   & h2 {
     margin-left: 8px;
@@ -65,4 +66,38 @@
   width: 16px;
   height: 16px;
   margin-left: auto;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  gap: 12px;
+}
+
+.user_image_thumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  & image {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+.user_name {
+  color: #000;
+  letter-spacing: 0.14px;
+}
+
+.user_prof {
+  color: #757575;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.12px;
 }

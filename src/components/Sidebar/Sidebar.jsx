@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import { ReactComponent as Setting } from "../../assets/images/setting 1.svg";
+import { ReactComponent as Setting } from "../../assets/icons/setting 1.svg";
 import Icon from "../../assets/icons/icons.svg";
+import avatar from "../../assets/images/avatar.png";
 
 const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
   const Icons = (category, className = "sidebar_icon") => {
@@ -83,8 +85,23 @@ const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
           </li>
         ))}
       </ul>
+      <div className="user">
+        <div className="user_image_thumb">
+          <img className="user_image" src={avatar} alt="avatar" />
+        </div>
+        <div className="user_info">
+          <p className="user_name">Evano</p>
+          <p className="user_prof">Project Manager</p>
+        </div>
+      </div>
     </div>
   );
+};
+
+Sidebar.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedCategory: PropTypes.string.isRequired,
+  onSelectedCategory: PropTypes.func.isRequired,
 };
 
 export default Sidebar;
