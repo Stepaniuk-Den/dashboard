@@ -1,13 +1,7 @@
-import React, { Suspense, lazy, useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import React, { lazy, useEffect, useState } from "react";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar/Sidebar";
-import Loader from "./components/Loader/Loader";
 import Layout from "./components/Layout/Layout";
 
 const Dashboard = lazy(() => import("./components/Dashboard"));
@@ -27,6 +21,7 @@ function App() {
     "Help",
   ];
   const [selectedCategory, setSelectedCategory] = useState("");
+  const navigate = useNavigate();
 
   const handleSelectedCategory = (category) => {
     setSelectedCategory(category);
@@ -51,37 +46,33 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   if (!selectedCategory) {
-  //     window.location.href = "/";
-  //   }
-  // }, [selectedCategory]);
+  useEffect(() => {
+    if (!selectedCategory) {
+      navigate("/");
+    }
+  }, [selectedCategory, navigate]);
 
   return (
-    <Suspense fallback={<Loader />}>
-      <Router>
-        <div className="page_container">
-          <Sidebar
-            categories={categories}
-            onSelectedCategory={handleSelectedCategory}
-            selectedCategory={selectedCategory}
-          />
-          <div className="page_category">
-            <p className="page_category_greeting">Hello Evano 👋🏼,</p>
-            <Routes>
-              {/* <Route path="/" element={<Layout />}> */}
-              <Route index element={<Layout />} />
-              <Route
-                path="/:category"
-                element={getCategoryComponent(selectedCategory)}
-              />
-              <Route path="*" element={<Navigate to="/" replace />} />
-              {/* </Route> */}
-            </Routes>
-          </div>
-        </div>
-      </Router>
-    </Suspense>
+    <div className="page_container">
+      <Sidebar
+        categories={categories}
+        onSelectedCategory={handleSelectedCategory}
+        selectedCategory={selectedCategory}
+      />
+      <div className="page_category">
+        <p className="page_category_greeting">Hello Evano 👋🏼,</p>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Layout />} />
+            <Route
+              path="/:category"
+              element={getCategoryComponent(selectedCategory)}
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      </div>
+    </div>
   );
 }
 
