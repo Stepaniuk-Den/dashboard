@@ -4,8 +4,9 @@ import Stack from "@mui/material/Stack";
 
 import contacts from "../../data/contacts";
 import Button from "../Button/Button";
-import style from "../../mui/muiPagination";
+import style from "../../shared/mui/muiPagination";
 import { ReactComponent as Search } from "../../assets/icons/search 1.svg";
+import { Default, Mobile } from "../../shared/reactResponsive/responsive";
 
 const Customers = () => {
   return (
@@ -23,10 +24,12 @@ const Customers = () => {
         </div>
         <ul className="customers_category_list">
           <li className="customers_category_list_name">Customer Name</li>
-          <li className="customers_category_list_company">Company</li>
-          <li className="customers_category_list_phone">Phone Number</li>
-          <li className="customers_category_list_email">Email</li>
-          <li className="customers_category_list_country">Country</li>
+          <Default>
+            <li className="customers_category_list_company">Company</li>
+            <li className="customers_category_list_phone">Phone Number</li>
+            <li className="customers_category_list_email">Email</li>
+            <li className="customers_category_list_country">Country</li>
+          </Default>
           <li className="customers_category_list_status">Status</li>
         </ul>
       </div>
@@ -35,14 +38,16 @@ const Customers = () => {
           return (
             <li key={contact.id} className="customers_list_item">
               <p className="customers_category_list_name">{contact.name}</p>
-              <p className="customers_category_list_company">
-                {contact.company}
-              </p>
-              <p className="customers_category_list_phone">{contact.phone}</p>
-              <p className="customers_category_list_email">{contact.email}</p>
-              <p className="customers_category_list_country">
-                {contact.country}
-              </p>
+              <Default>
+                <p className="customers_category_list_company">
+                  {contact.company}
+                </p>
+                <p className="customers_category_list_phone">{contact.phone}</p>
+                <p className="customers_category_list_email">{contact.email}</p>
+                <p className="customers_category_list_country">
+                  {contact.country}
+                </p>
+              </Default>
               <Button
                 className={contact.status ? "active" : "inactive"}
                 text={contact.status ? "Active" : "Inactive"}
@@ -54,12 +59,23 @@ const Customers = () => {
       <div className="customers_pagination">
         <p>Showing data 1 to 8 of 256K entries</p>
         <Stack spacing={4}>
-          <Pagination
-            count={40}
-            variant="outlined"
-            shape="rounded"
-            sx={style}
-          />
+          <Default>
+            <Pagination
+              count={40}
+              variant="outlined"
+              shape="rounded"
+              sx={style}
+            />
+          </Default>
+          <Mobile>
+            <Pagination
+              count={40}
+              variant="outlined"
+              shape="rounded"
+              sx={style}
+              siblingCount={0}
+            />
+          </Mobile>
         </Stack>
       </div>
     </div>

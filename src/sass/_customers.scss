@@ -7,6 +7,13 @@
 
   background-color: #fff;
   border-radius: 40px;
+
+  @media screen and (max-width: 767px) {
+    width: 270px;
+    height: 100%;
+    padding: 30px 20px 40px 20px;
+    margin: 0 auto;
+  }
 }
 
 .customers_category_title {
@@ -22,9 +29,19 @@
   }
 
   & p {
+    display: flex;
     color: #16c098;
     font-weight: 400;
     margin-bottom: 40px;
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+
+    & p {
+      justify-content: center;
+    }
   }
 }
 
@@ -56,6 +73,10 @@
     transform: translateY(-50%);
     color: #666;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: 0 auto 20px;
   }
 }
 
@@ -123,6 +144,14 @@
     border-bottom: 1px solid #eee;
     box-sizing: border-box;
   }
+
+  @media screen and (max-width: 767px) {
+    &::before {
+      right: 0px;
+      bottom: 0;
+      left: 0px;
+    }
+  }
 }
 
 .customers_list {
@@ -164,5 +193,10 @@
 
   & p {
     color: #b5b7c0;
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    gap: 20px;
   }
 }
