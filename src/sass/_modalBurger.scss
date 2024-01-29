@@ -1,0 +1,50 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(145, 151, 179, 0.7);
+  backdrop-filter: blur(2px);
+  overscroll-behavior: contain;
+  z-index: 1;
+
+  &_wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 260px;
+    height: 300px;
+    padding: 60px 20px;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 40px;
+  }
+
+  &_btn-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid #9197b3;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &_icon {
+      width: 18px;
+      height: 18px;
+      fill: #9197b3;
+    }
+  }
+}

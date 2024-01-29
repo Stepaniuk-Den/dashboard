@@ -6,6 +6,8 @@ body {
   line-height: normal;
   letter-spacing: -0.14px;
   background-color: #f7f4ff;
+  margin: 0;
+  padding: 0;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,7 +42,6 @@ img {
   max-width: 100%;
 }
 
-button,
 Link,
 input {
   padding: 0;
@@ -50,4 +51,16 @@ input {
 
 a {
   text-decoration: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.no-scroll {
+  overflow: hidden;
 }

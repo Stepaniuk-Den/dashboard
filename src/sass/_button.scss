@@ -20,3 +20,21 @@ button {
     background: #ffc5c5;
   }
 }
+
+.burger {
+  // position: absolute;
+  // top: 20px;
+  // right: 0;
+  display: flex;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-left: auto;
+  background-color: transparent;
+
+  &_icon {
+    width: 32px;
+    height: 32px;
+    stroke: #9197b3;
+  }
+}
