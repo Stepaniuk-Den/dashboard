@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-// import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import { ReactComponent as Setting } from "../../assets/icons/setting 1.svg";
-// import Icon from "../../assets/icons/icons.svg";
 import avatar from "../../assets/images/avatar.webp";
 import { Default, Mobile } from "../../shared/reactResponsive/responsive";
 
@@ -13,64 +11,24 @@ import ModalBurger from "../ModalBurger/ModalBurger";
 import SidebarList from "../SidebarList/SidebarList";
 
 const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
-  // const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isShowBurgerModal, setIsShowBurgerModal] = useState(false);
-
-  // const Icons = (category, className = "sidebar_icon") => {
-  //   const categoryLowerCase = category.replace(/\s+/g, "-").toLowerCase();
-  //   return (
-  //     <svg
-  //       width="24"
-  //       height="24"
-  //       className={className}
-  //       stroke={category === selectedCategory ? "#FFFFFF" : "#9197B3"}
-  //     >
-  //       <use href={Icon + `#icon-${categoryLowerCase}`} />
-  //     </svg>
-  //   );
-  // };
-
-  // const IconsBroken = (category) => {
-  //   const categoryLowerCase = category.replace(/\s+/g, "-").toLowerCase();
-  //   return (
-  //     <svg width="24" height="24" className="sidebar_icon">
-  //       {category === selectedCategory ? (
-  //         <use href={Icon + `#icon-${categoryLowerCase}-white`} />
-  //       ) : (
-  //         <use href={Icon + `#icon-${categoryLowerCase}`} />
-  //       )}
-  //     </svg>
-  //   );
-  // };
-
-  // const getCategoryIcon = (category) => {
-  //   switch (category) {
-  //     case "Dashboard":
-  //       return Icons(category);
-  //     case "Product":
-  //       return IconsBroken(category);
-  //     case "Customers":
-  //       return IconsBroken(category);
-  //     case "Income":
-  //       return Icons(category);
-  //     case "Promote":
-  //       return IconsBroken(category);
-  //     case "Help":
-  //       return IconsBroken(category);
-  //     default:
-  //       return null;
-  //   }
-  // };
-
-  // const toggleDropdown = () => {
-  //   setDropdownOpen(!isDropdownOpen);
-  //   // setLogoutModalOpen(false);
-  // };
 
   const openBurgerMenu = () => {
     setIsShowBurgerModal(!isShowBurgerModal);
   };
   console.log(isShowBurgerModal);
+
+  const CallBack = (childData) => {
+    return setIsShowBurgerModal(childData);
+  };
+
+  useEffect(() => {
+    if (!isShowBurgerModal) return;
+    document.body.classList.add("no-scroll");
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isShowBurgerModal]);
 
   return (
     <div className="sidebar_wrapper">
@@ -102,11 +60,15 @@ const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
             onClick={openBurgerMenu}
             text={<FiAlignJustify className="burger_icon" />}
           />
-          <ModalBurger
-            categories={categories}
-            onSelectedCategory={onSelectedCategory}
-            selectedCategory={selectedCategory}
-          />
+          {isShowBurgerModal && (
+            <ModalBurger
+              categories={categories}
+              onSelectedCategory={onSelectedCategory}
+              selectedCategory={selectedCategory}
+              stateBurgerModal={isShowBurgerModal}
+              handleCallBack={CallBack}
+            />
+          )}
         </Mobile>
       </div>
     </div>
