@@ -1,8 +1,14 @@
 import React from "react";
 import Icon from "../../assets/icons/icons.svg";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const SidebarList = ({ categories, onSelectedCategory, selectedCategory }) => {
+const SidebarList = ({
+  categories,
+  onSelectedCategory,
+  selectedCategory,
+  handleClose,
+}) => {
   const Icons = (category, className = "sidebar_icon") => {
     const categoryLowerCase = category.replace(/\s+/g, "-").toLowerCase();
     return (
@@ -48,13 +54,18 @@ const SidebarList = ({ categories, onSelectedCategory, selectedCategory }) => {
         return null;
     }
   };
+
+  const handleClickClose = (category) => {
+    onSelectedCategory(category);
+    handleClose();
+  };
   return (
     <ul className="sidebar_list">
       {categories.map((category) => (
         <li key={category} className="sidebar_item">
           <NavLink
             to={`/${category}`}
-            onClick={() => onSelectedCategory(category)}
+            onClick={() => handleClickClose(category)}
             className={({ isActive }) => {
               return isActive ? "active_link" : "inactive_link";
             }}
@@ -75,6 +86,13 @@ const SidebarList = ({ categories, onSelectedCategory, selectedCategory }) => {
       ))}
     </ul>
   );
+};
+
+SidebarList.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedCategory: PropTypes.string.isRequired,
+  onSelectedCategory: PropTypes.func.isRequired,
+  handleClose: PropTypes.func,
 };
 
 export default SidebarList;

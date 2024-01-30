@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
@@ -9,6 +9,14 @@ import { ReactComponent as Search } from "../../assets/icons/search 1.svg";
 import { Default, Mobile } from "../../shared/reactResponsive/responsive";
 
 const Customers = () => {
+  const { isShowMore, setIsShowMore } = useState(false);
+
+  const handleShowMore = (e) => {
+    if (e.target === e.currentTarget) {
+      console.log(e.target);
+      console.log(e.currentTarget);
+    }
+  };
   return (
     <div className="customers_wrapper">
       <div className="customers_category">
@@ -36,7 +44,11 @@ const Customers = () => {
       <ul className="customers_list">
         {contacts.map((contact) => {
           return (
-            <li key={contact.id} className="customers_list_item">
+            <li
+              key={contact.id}
+              className="customers_list_item"
+              onClick={handleShowMore}
+            >
               <p className="customers_category_list_name">{contact.name}</p>
               <Default>
                 <p className="customers_category_list_company">

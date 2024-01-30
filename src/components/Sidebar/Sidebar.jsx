@@ -42,7 +42,6 @@ const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
           categories={categories}
           onSelectedCategory={onSelectedCategory}
           selectedCategory={selectedCategory}
-          stateBurgerModal={isShowBurgerModal}
         />
       </Default>
       <div className="user">
@@ -65,7 +64,6 @@ const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
               categories={categories}
               onSelectedCategory={onSelectedCategory}
               selectedCategory={selectedCategory}
-              stateBurgerModal={isShowBurgerModal}
               handleCallBack={CallBack}
             />
           )}

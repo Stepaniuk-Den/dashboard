@@ -1,20 +1,10 @@
-import React, { useState } from "react";
-// import { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import PropTypes from "prop-types";
 
 import { AiOutlineClose } from "react-icons/ai";
-// import { selectIsShowBurgerModal } from "../../../redux/Modal/modalSelectors";
-// import {
-//   toggleShowAuthPage,
-//   toggleShowBurgerModal,
-// } from "../../../redux/Modal/modalSlice";
-// import { Link, useLocation } from "react-router-dom";
+
 import Button from "../Button/Button";
 import SidebarList from "../SidebarList/SidebarList";
-// import BtnRegister from "../components/ButtonRegister/ButtonRegister";
-// import BtnLogin from "../components/ButtonLogin/ButtonLogin";
-// import { selectIsAuth } from "../../../redux/user/userSelectors";
-// import LogoutModal from "../../homepage/components/ModalLogOut/ModalLogOut";
 
 const ModalBurger = ({
   categories,
@@ -22,16 +12,7 @@ const ModalBurger = ({
   selectedCategory,
   handleCallBack,
 }) => {
-  // const dispatch = useDispatch();
-  // const location = useLocation();
-  // const dropdownRef = useRef(null);
-
-  // const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [isShowBurgerModal, setIsShowBurgerModal] = useState(false);
-  // const [isLogoutModalOpen, setLogoutModalOpen] = useState(false);
-
-  // const isShowBurgerModal = useSelector(selectIsShowBurgerModal);
-  // const hasToken = useSelector(selectIsAuth);
+  // const [isShowBurgerModal, setIsShowBurgerModal] = useState(false);
 
   // useEffect(() => {
   //   if (!isShowBurgerModal) return;
@@ -43,12 +24,14 @@ const ModalBurger = ({
 
   // useEffect(() => {
   //   const handleDocumentClick = (event) => {
+  //     // console.log(modalRef);
   //     if (
-  //       isDropdownOpen &&
-  //       dropdownRef.current &&
-  //       !dropdownRef.current.contains(event.target)
+  //       isShowBurgerModal &&
+  //       modalRef.current &&
+  //       !modalRef.current.contains(event.target)
   //     ) {
-  //       setDropdownOpen(false);
+  //       // setIsShowBurgerModal(false);
+  //       handleCallBack(isShowBurgerModal);
   //     }
   //   };
 
@@ -56,7 +39,7 @@ const ModalBurger = ({
   //   return () => {
   //     document.removeEventListener("click", handleDocumentClick);
   //   };
-  // }, [isDropdownOpen]);
+  // }, [handleCallBack, isShowBurgerModal]);
 
   // const handleOpenModal = (e) => {
   //   dispatch(toggleShowAuthPage(e.currentTarget.name));
@@ -65,54 +48,24 @@ const ModalBurger = ({
 
   const handleClickBtnClose = () => {
     document.body.classList.remove("no-scroll");
-    // dispatch(toggleShowBurgerModal());
-    // setIsShowBurgerModal(false);
-    handleCallBack(isShowBurgerModal);
+    // handleCallBack(isShowBurgerModal);
+    handleCallBack(false);
   };
 
   const handleClickOverlay = (e) => {
     if (e.target === e.currentTarget) {
-      // handleClickBtnClose();
+      handleClickBtnClose();
     }
   };
 
-  // const navItems = [
-  //   { to: "/home" || "/lastPassed", label: "Home" },
-  //   { to: "/discover", label: "Discover" },
-  //   { to: "/favorite", label: "Favorite quize" },
-  //   { to: "/ownquiz", label: "My quize" },
-  // ];
-
-  // const generateNavLinks = (hasToken) => {
-  //   return navItems.map((item, index) => (
-  //     <Link key={index} to={item.to}>
-  //       <NavItem
-  //         className={location.pathname === item.to ? "active" : ""}
-  //         onClick={handleClickBtnClose}
-  //       >
-  //         {item.label}
-  //       </NavItem>
-  //     </Link>
-  //   ));
-  // };
-
-  // const toggleDropdown = () => {
-  //   setDropdownOpen(!isDropdownOpen);
-  //   setLogoutModalOpen(false);
-  // };
-
-  // const openLogoutModal = () => {
-  //   setLogoutModalOpen(true);
-  // };
-
   return (
-    // isShowBurgerModal && (
-    <div className="modal">
+    <div className="modal" onClick={handleClickOverlay}>
       <div className="modal_wrapper">
         <SidebarList
           categories={categories}
           onSelectedCategory={onSelectedCategory}
           selectedCategory={selectedCategory}
+          handleClose={handleClickBtnClose}
         />
         <Button
           className="modal_btn-close"
@@ -123,7 +76,13 @@ const ModalBurger = ({
       </div>
     </div>
   );
-  // );
+};
+
+ModalBurger.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedCategory: PropTypes.string.isRequired,
+  onSelectedCategory: PropTypes.func.isRequired,
+  handleCallBack: PropTypes.func.isRequired,
 };
 
 export default ModalBurger;
