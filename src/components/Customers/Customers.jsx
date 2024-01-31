@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
@@ -7,16 +7,43 @@ import Button from "../Button/Button";
 import style from "../../shared/mui/muiPagination";
 import { ReactComponent as Search } from "../../assets/icons/search 1.svg";
 import { Default, Mobile } from "../../shared/reactResponsive/responsive";
+import Customer from "../Customer/Customer";
 
 const Customers = () => {
-  const { isShowMore, setIsShowMore } = useState(false);
+  // const [filteredContacts, setFilteredContacts] = useState(null);
 
-  const handleShowMore = (e) => {
-    if (e.target === e.currentTarget) {
-      console.log(e.target);
-      console.log(e.currentTarget);
-    }
-  };
+  // const dropdownRef = useRef(null);
+  // const filteredContactsRef = useRef(filteredContacts);
+
+  // useEffect(() => {
+  //   const handleDocumentClick = (e) => {
+  //     const value = Number(e.target.id);
+  //     const filtered = contacts.filter((contact) => contact.id === value);
+  //     filteredContactsRef.current = filtered;
+  //     // setFilteredContacts(filteredContactsRef.current);
+  //     setFilteredContacts(filtered);
+  //     // if (
+  //     //   isShowMore &&
+  //     //   filteredContactsRef.current &&
+  //     //   // filteredContactsRef.current[0].id !== value
+  //     //   !filteredContactsRef.current.contains(e.target)
+  //     // ) {
+  //     //   setFilteredContacts(filteredContactsRef.current);
+  //     //   // setIsShowMore(false);
+  //     // }
+  //     console.log("filteredContactsRef :", filteredContactsRef.current);
+
+  //     // console.log("dropdownRef.current", dropdownRef.current);
+  //     // console.log("event.target", e.target);
+  //   };
+
+  //   document.addEventListener("click", handleDocumentClick);
+  //   return () => {
+  //     document.removeEventListener("click", handleDocumentClick);
+  //   };
+  // }, [isShowMore]);
+
+  // console.log("filteredContacts :", filteredContacts);
   return (
     <div className="customers_wrapper">
       <div className="customers_category">
@@ -37,37 +64,11 @@ const Customers = () => {
             <li className="customers_category_list_phone">Phone Number</li>
             <li className="customers_category_list_email">Email</li>
             <li className="customers_category_list_country">Country</li>
+            <li className="customers_category_list_status">Status</li>
           </Default>
-          <li className="customers_category_list_status">Status</li>
         </ul>
       </div>
-      <ul className="customers_list">
-        {contacts.map((contact) => {
-          return (
-            <li
-              key={contact.id}
-              className="customers_list_item"
-              onClick={handleShowMore}
-            >
-              <p className="customers_category_list_name">{contact.name}</p>
-              <Default>
-                <p className="customers_category_list_company">
-                  {contact.company}
-                </p>
-                <p className="customers_category_list_phone">{contact.phone}</p>
-                <p className="customers_category_list_email">{contact.email}</p>
-                <p className="customers_category_list_country">
-                  {contact.country}
-                </p>
-              </Default>
-              <Button
-                className={contact.status ? "active" : "inactive"}
-                text={contact.status ? "Active" : "Inactive"}
-              />
-            </li>
-          );
-        })}
-      </ul>
+      <Customer contacts={contacts} />
       <div className="customers_pagination">
         <p>Showing data 1 to 8 of 256K entries</p>
         <Stack spacing={4}>

@@ -154,36 +154,6 @@
   }
 }
 
-.customers_list {
-  display: flex;
-  flex-direction: column;
-}
-
-.customers_list_item {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 21px;
-  color: #292d32;
-  padding: 24px 0;
-
-  &_status {
-    padding: 20px 0;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-bottom: 1px solid #eee;
-    box-sizing: border-box;
-  }
-}
-
 .customers_pagination {
   display: flex;
   flex-direction: row;
