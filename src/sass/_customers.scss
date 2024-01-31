@@ -9,14 +9,39 @@
   border-radius: 40px;
 
   @media screen and (max-width: 767px) {
-    width: 280px;
+    width: 270px;
     height: 100%;
     padding: 30px 20px 40px 20px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
   }
 }
 
-.customers_category_title {
+.customers_category {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -40px;
+    bottom: 0;
+    left: -38px;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 767px) {
+    &::before {
+      right: 0px;
+      bottom: 0;
+      left: 0px;
+    }
+  }
+}
+
+.customers_category-title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -80,78 +105,53 @@
   }
 }
 
-.customers_category_list {
+.customers_category-list {
   display: flex;
   flex-direction: row;
   color: #b5b7c0;
   padding-bottom: 14px;
-
-  &_name {
-    display: flex;
-    width: 170px;
-    height: 21px;
-    padding-right: 2px;
-  }
-
-  &_company {
-    display: flex;
-    width: 129px;
-    height: 21px;
-    padding-right: 2px;
-  }
-
-  &_phone {
-    display: flex;
-    width: 154px;
-    height: 21px;
-    padding-right: 2px;
-  }
-
-  &_email {
-    display: flex;
-    width: 205px;
-    height: 21px;
-    padding-right: 2px;
-  }
-
-  &_country {
-    display: flex;
-    width: 138px;
-    height: 21px;
-    padding-right: 2px;
-  }
-
-  &_status {
-    display: flex;
-    width: 80px;
-    height: 29px;
-    justify-content: center;
-  }
 }
 
-.customers_category {
-  position: relative;
+.name {
   display: flex;
-  flex-direction: column;
+  width: 170px;
+  height: 21px;
+  padding-right: 2px;
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -40px;
-    bottom: 0;
-    left: -38px;
-    border-bottom: 1px solid #eee;
-    box-sizing: border-box;
-  }
+.company {
+  display: flex;
+  width: 129px;
+  height: 21px;
+  padding-right: 2px;
+}
 
-  @media screen and (max-width: 767px) {
-    &::before {
-      right: 0px;
-      bottom: 0;
-      left: 0px;
-    }
-  }
+.phone {
+  display: flex;
+  width: 154px;
+  height: 21px;
+  padding-right: 2px;
+}
+
+.email {
+  display: flex;
+  width: 205px;
+  height: 21px;
+  padding-right: 2px;
+}
+
+.country {
+  display: flex;
+  width: 138px;
+  height: 21px;
+  padding-right: 2px;
+}
+
+.status {
+  display: flex;
+  width: 80px;
+  height: 29px;
+  justify-content: center;
 }
 
 .customers_pagination {

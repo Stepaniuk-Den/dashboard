@@ -48,7 +48,6 @@ const ModalBurger = ({
 
   const handleClickBtnClose = () => {
     document.body.classList.remove("no-scroll");
-    // handleCallBack(isShowBurgerModal);
     handleCallBack(false);
   };
 

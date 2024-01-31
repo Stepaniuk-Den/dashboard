@@ -2,6 +2,7 @@ import React from "react";
 import Icon from "../../assets/icons/icons.svg";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useMediaQuery } from "react-responsive";
 
 const SidebarList = ({
   categories,
@@ -9,6 +10,8 @@ const SidebarList = ({
   selectedCategory,
   handleClose,
 }) => {
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
+
   const Icons = (category, className = "sidebar_icon") => {
     const categoryLowerCase = category.replace(/\s+/g, "-").toLowerCase();
     return (
@@ -57,6 +60,7 @@ const SidebarList = ({
 
   const handleClickClose = (category) => {
     onSelectedCategory(category);
+    if (!isMobile) return;
     handleClose();
   };
   return (

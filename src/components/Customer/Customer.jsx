@@ -1,56 +1,44 @@
 import React, { useState } from "react";
-import { Default } from "../../shared/reactResponsive/responsive";
+import { Default, Mobile } from "../../shared/reactResponsive/responsive";
 import Button from "../Button/Button";
+import CustomersCategory from "../CustomersCategory/CustomersCategory";
 
-const Customer = ({ contacts }) => {
+const Customer = ({ contact }) => {
   const [isShowMore, setIsShowMore] = useState(false);
 
-  const handleShowMore = (e) => {
-    if (e.target === e.currentTarget) {
-      setIsShowMore(!isShowMore);
-      // setIsShowMore(true);
-    }
+  const handleShowMore = () => {
+    setIsShowMore(!isShowMore);
   };
-  console.log(isShowMore);
 
   return (
-    <div>
-      <ul
-        className="customers_list"
-        // ref={dropdownRef}
-      >
-        {contacts.map((contact) => {
-          return (
-            <li
-              key={contact.id}
-              id={contact.id}
-              className="customers_list_item"
-            >
-              <p className="customers_category_list_name">{contact.name}</p>
-              <Default>
-                <p className="customers_category_list_company">
-                  {contact.company}
-                </p>
-                <p className="customers_category_list_phone">{contact.phone}</p>
-                <p className="customers_category_list_email">{contact.email}</p>
-                <p className="customers_category_list_country">
-                  {contact.country}
-                </p>
-                <Button
-                  className={contact.status ? "active" : "inactive"}
-                  text={contact.status ? "Active" : "Inactive"}
-                />
-              </Default>
-              <Button
-                className="load-more"
-                text={isShowMore ? "Show Less" : "Read More"}
-                onClick={handleShowMore}
-              />
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      <div className="customer_wrapper">
+        <ul className="customer_list">
+          {!isShowMore && (
+            <li className="customer_list-item name">{contact.name}</li>
+          )}
+          <Default>
+            <li className="customer_list-item company">{contact.company}</li>
+            <li className="customer_list-item phone">{contact.phone}</li>
+            <li className="customer_list-item email">{contact.email}</li>
+            <li className="customer_list-item country">{contact.country}</li>
+            <Button
+              className={contact.status ? "active" : "inactive"}
+              text={contact.status ? "Active" : "Inactive"}
+            />
+          </Default>
+        </ul>
+        <Mobile>
+          <Button
+            className="load-more"
+            text={isShowMore ? "Show Less" : "Read More"}
+            onClick={handleShowMore}
+          />
+        </Mobile>
+      </div>
+      {isShowMore && <CustomersCategory isShowMore={isShowMore} />}
+      <div className="customer_bottom-border"></div>
+    </>
   );
 };
 
