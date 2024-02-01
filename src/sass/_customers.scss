@@ -108,43 +108,41 @@
 .customers_category-list {
   display: flex;
   flex-direction: row;
+
   color: #b5b7c0;
   padding-bottom: 14px;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 0;
+  }
 }
 
+.customers_category-item {
+  @media screen and (max-width: 767px) {
+    padding: 0;
+    width: 135px;
+  }
+}
 .name {
-  display: flex;
   width: 170px;
-  height: 21px;
-  padding-right: 2px;
 }
 
 .company {
-  display: flex;
   width: 129px;
-  height: 21px;
-  padding-right: 2px;
 }
 
 .phone {
-  display: flex;
   width: 154px;
-  height: 21px;
-  padding-right: 2px;
 }
 
 .email {
-  display: flex;
   width: 205px;
-  height: 21px;
-  padding-right: 2px;
 }
 
 .country {
-  display: flex;
   width: 138px;
-  height: 21px;
-  padding-right: 2px;
 }
 
 .status {
@@ -152,6 +150,30 @@
   width: 80px;
   height: 29px;
   justify-content: center;
+
+  @media screen and (max-width: 767px) {
+    width: 135px;
+    height: 29px;
+    justify-content: flex-start;
+  }
+}
+
+.name,
+.company,
+.phone,
+.email,
+.country {
+  display: flex;
+  height: 21px;
+  padding-right: 2px;
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+    width: 135px;
+    height: 29px;
+    justify-content: flex-start;
+    font-size: 12px;
+  }
 }
 
 .customers_pagination {

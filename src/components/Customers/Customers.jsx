@@ -6,6 +6,7 @@ import { ReactComponent as Search } from "../../assets/icons/search 1.svg";
 import Customer from "../Customer/Customer";
 import CustomersCategory from "../CustomersCategory/CustomersCategory";
 import MuiPagination from "../MuiPagination/MuiPagination";
+import { Default } from "../../shared/reactResponsive/responsive";
 
 const Customers = () => {
   // const [filteredContacts, setFilteredContacts] = useState(contacts);
@@ -55,7 +56,9 @@ const Customers = () => {
             <Search className="icon" />
           </div>
         </div>
-        <CustomersCategory />
+        <Default>
+          <CustomersCategory />
+        </Default>
       </div>
       {contacts.map((contact) => (
         <Customer key={contact.id} id={contact.id} contact={contact} />

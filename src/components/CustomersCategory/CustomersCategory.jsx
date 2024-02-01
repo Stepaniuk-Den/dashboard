@@ -1,30 +1,16 @@
 import React from "react";
-import { Default } from "../../shared/reactResponsive/responsive";
 
-const CustomersCategory = ({ isShowMore }) => {
+const CustomersCategory = () => {
   return (
     <>
-      <ul className="customers_category-list">
-        {!isShowMore ? (
-          <li className="customers_category-item name">Customer Name</li>
-        ) : null}
-        <Default>
-          <li className="customers_category-item company">Company</li>
-          <li className="customers_category-item phone">Phone Number</li>
-          <li className="customers_category-item email">Email</li>
-          <li className="customers_category-item country">Country</li>
-          <li className="customers_category-item status">Status</li>
-        </Default>
-      </ul>
-      {isShowMore && (
-        <ul className="customers_category-list">
-          <li className="customers_category-item company">Company</li>
-          <li className="customers_category-item phone">Phone Number</li>
-          <li className="customers_category-item email">Email</li>
-          <li className="customers_category-item country">Country</li>
-          <li className="customers_category-item status">Status</li>
-        </ul>
-      )}
+      <div className="customers_category-list">
+        <p className="customers_category-item name">Customer Name</p>
+        <p className="customers_category-item company">Company</p>
+        <p className="customers_category-item phone">Phone Number</p>
+        <p className="customers_category-item email">Email</p>
+        <p className="customers_category-item country">Country</p>
+        <p className="customers_category-item status">Status</p>
+      </div>
     </>
   );
 };
