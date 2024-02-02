@@ -47,7 +47,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (!selectedCategory) {
+    if (!selectedCategory || selectedCategory === "/") {
       navigate("/");
     }
   }, [selectedCategory, navigate]);
