@@ -1,5 +1,4 @@
-import React from "react";
-// import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import contacts from "../../data/contacts";
 import { ReactComponent as Search } from "../../assets/icons/search 1.svg";
 
@@ -9,40 +8,31 @@ import MuiPagination from "../MuiPagination/MuiPagination";
 import { Default } from "../../shared/reactResponsive/responsive";
 
 const Customers = () => {
-  // const [filteredContacts, setFilteredContacts] = useState(contacts);
+  const [filteredContacts, setFilteredContacts] = useState(contacts);
+  const [totalContacts, setTotalContacts] = useState(contacts.length);
+  const [inputValue, setInputValue] = useState("");
+  const [displayedContacts, setDisplayedContacts] = useState(null);
 
-  // const dropdownRef = useRef(null);
-  // const filteredContactsRef = useRef(filteredContacts);
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
 
-  // useEffect(() => {
-  //   const handleDocumentClick = (e) => {
-  //     const value = Number(e.target.id);
-  //     const filtered = contacts.filter((contact) => contact.id === value);
-  //     filteredContactsRef.current = filtered;
-  //     // setFilteredContacts(filteredContactsRef.current);
-  //     setFilteredContacts(filtered);
-  //     // if (
-  //     //   isShowMore &&
-  //     //   filteredContactsRef.current &&
-  //     //   // filteredContactsRef.current[0].id !== value
-  //     //   !filteredContactsRef.current.contains(e.target)
-  //     // ) {
-  //     //   setFilteredContacts(filteredContactsRef.current);
-  //     //   // setIsShowMore(false);
-  //     // }
-  //     console.log("filteredContactsRef :", filteredContactsRef.current);
+    const filtered = contacts.filter((contact) => {
+      return contact.name.toLowerCase().includes(value.toLowerCase());
+    });
+    setFilteredContacts(filtered);
+  };
 
-  //     // console.log("dropdownRef.current", dropdownRef.current);
-  //     // console.log("event.target", e.target);
-  //   };
+  const CallBack = (childData) => {
+    return setDisplayedContacts(childData);
+  };
 
-  //   document.addEventListener("click", handleDocumentClick);
-  //   return () => {
-  //     document.removeEventListener("click", handleDocumentClick);
-  //   };
-  // }, [isShowMore]);
+  useEffect(() => {
+    if (totalContacts === filteredContacts.length) return;
+    const totalFilteredContacts = filteredContacts.length;
+    setTotalContacts(totalFilteredContacts);
+  }, [filteredContacts, totalContacts]);
 
-  // console.log("filteredContacts :", filteredContacts);
   return (
     <div className="customers_wrapper">
       <div className="customers_category">
@@ -52,7 +42,13 @@ const Customers = () => {
             <p>Active Members</p>
           </div>
           <div className="input-container">
-            <input type="text" name="search" placeholder="Search" />
+            <input
+              type="text"
+              name="search"
+              placeholder="Search"
+              value={inputValue}
+              onChange={handleInputChange}
+            />
             <Search className="icon" />
           </div>
         </div>
@@ -60,10 +56,15 @@ const Customers = () => {
           <CustomersCategory />
         </Default>
       </div>
-      {contacts.map((contact) => (
-        <Customer key={contact.id} id={contact.id} contact={contact} />
-      ))}
-      <MuiPagination />
+      {displayedContacts &&
+        displayedContacts.map((contact) => (
+          <Customer key={contact.id} id={contact.id} contact={contact} />
+        ))}
+      <MuiPagination
+        totalContacts={totalContacts}
+        filteredContacts={filteredContacts}
+        handleCallBack={CallBack}
+      />
     </div>
   );
 };

@@ -12,40 +12,6 @@ const ModalBurger = ({
   selectedCategory,
   handleCallBack,
 }) => {
-  // const [isShowBurgerModal, setIsShowBurgerModal] = useState(false);
-
-  // useEffect(() => {
-  //   if (!isShowBurgerModal) return;
-  //   document.body.classList.add("no-scroll");
-  //   return () => {
-  //     document.body.classList.remove("no-scroll");
-  //   };
-  // }, [isShowBurgerModal]);
-
-  // useEffect(() => {
-  //   const handleDocumentClick = (event) => {
-  //     // console.log(modalRef);
-  //     if (
-  //       isShowBurgerModal &&
-  //       modalRef.current &&
-  //       !modalRef.current.contains(event.target)
-  //     ) {
-  //       // setIsShowBurgerModal(false);
-  //       handleCallBack(isShowBurgerModal);
-  //     }
-  //   };
-
-  //   document.addEventListener("click", handleDocumentClick);
-  //   return () => {
-  //     document.removeEventListener("click", handleDocumentClick);
-  //   };
-  // }, [handleCallBack, isShowBurgerModal]);
-
-  // const handleOpenModal = (e) => {
-  //   dispatch(toggleShowAuthPage(e.currentTarget.name));
-  //   dispatch(toggleShowBurgerModal());
-  // };
-
   const handleClickBtnClose = () => {
     document.body.classList.remove("no-scroll");
     handleCallBack(false);

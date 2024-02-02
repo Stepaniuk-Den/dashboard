@@ -125,6 +125,16 @@
     width: 135px;
   }
 }
+
+.name,
+.company,
+.phone,
+.email,
+.country {
+  display: flex;
+  height: 21px;
+}
+
 .name {
   width: 170px;
 }
@@ -150,30 +160,6 @@
   width: 80px;
   height: 29px;
   justify-content: center;
-
-  @media screen and (max-width: 767px) {
-    width: 135px;
-    height: 29px;
-    justify-content: flex-start;
-  }
-}
-
-.name,
-.company,
-.phone,
-.email,
-.country {
-  display: flex;
-  height: 21px;
-  padding-right: 2px;
-
-  @media screen and (max-width: 767px) {
-    display: flex;
-    width: 135px;
-    height: 29px;
-    justify-content: flex-start;
-    font-size: 12px;
-  }
 }
 
 .customers_pagination {

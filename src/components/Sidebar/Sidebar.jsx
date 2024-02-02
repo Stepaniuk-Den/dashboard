@@ -16,7 +16,6 @@ const Sidebar = ({ categories, onSelectedCategory, selectedCategory }) => {
   const openBurgerMenu = () => {
     setIsShowBurgerModal(!isShowBurgerModal);
   };
-  // console.log("isShowBurgerModal", isShowBurgerModal);
 
   const CallBack = (childData) => {
     return setIsShowBurgerModal(childData);

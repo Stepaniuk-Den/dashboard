@@ -42,7 +42,7 @@ const Customer = ({ contact }) => {
         <>
           <Mobile>
             <div className="customer_details">
-              <ul className="customer_details_list">
+              <ul className="customer_details-list">
                 <li className="customer_details-item">
                   <p className="customer_details-text">Customer Name</p>
                   {contact.name}
