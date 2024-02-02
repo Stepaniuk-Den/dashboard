@@ -47,7 +47,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (!selectedCategory || selectedCategory === "/") {
+    if (!selectedCategory) {
       navigate("/");
     }
   }, [selectedCategory, navigate]);
@@ -68,8 +68,8 @@ function App() {
               path="/:category"
               element={getCategoryComponent(selectedCategory)}
             />
-            <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </div>

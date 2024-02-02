@@ -73,7 +73,7 @@ const contacts = [
   },
   {
     id: 9,
-    name: "Kristin Watson",
+    name: "Kristina Watson",
     company: "Facebook",
     phone: "(704) 555-0127",
     email: "kristin@facebook.com",
@@ -82,7 +82,7 @@ const contacts = [
   },
   {
     id: 10,
-    name: "Kristin Watson",
+    name: "Kris Watson",
     company: "Facebook",
     phone: "(704) 555-0127",
     email: "kristin@facebook.com",
@@ -91,7 +91,7 @@ const contacts = [
   },
   {
     id: 11,
-    name: "Jane Cooper",
+    name: "Jenny Cooper",
     company: "Microsoft",
     phone: "(225) 555-0118",
     email: "jane@microsoft.com",
@@ -100,7 +100,7 @@ const contacts = [
   },
   {
     id: 12,
-    name: "Floyd Miles",
+    name: "Fred Miles",
     company: "Yahoo",
     phone: "(205) 555-0100",
     email: "floyd@yahoo.com",
@@ -109,7 +109,7 @@ const contacts = [
   },
   {
     id: 13,
-    name: "Ronald Richards",
+    name: "Donald Richards",
     company: "Adobe",
     phone: "(302) 555-0107",
     email: "ronald@adobe.com",
@@ -118,7 +118,7 @@ const contacts = [
   },
   {
     id: 14,
-    name: "Marvin McKinney",
+    name: "Mike McKinney",
     company: "Tesla",
     phone: "(252) 555-0126",
     email: "marvin@tesla.com",
@@ -127,7 +127,7 @@ const contacts = [
   },
   {
     id: 15,
-    name: "Jerome Bell",
+    name: "Jeson Bell",
     company: "Google",
     phone: "(629) 555-0129",
     email: "jerome@google.com",
@@ -136,7 +136,7 @@ const contacts = [
   },
   {
     id: 16,
-    name: "Kathryn Murphy",
+    name: "Katya Murphy",
     company: "Microsoft",
     phone: "(406) 555-0120",
     email: "kathryn@microsoft.com",
@@ -145,7 +145,7 @@ const contacts = [
   },
   {
     id: 17,
-    name: "Jacob Jones",
+    name: "Jennifer Jones",
     company: "Yahoo",
     phone: "(208) 555-0112",
     email: "jacob@yahoo.com",
@@ -154,7 +154,7 @@ const contacts = [
   },
   {
     id: 18,
-    name: "Kristin Watson",
+    name: "Krishtiano Ronaldo",
     company: "Facebook",
     phone: "(704) 555-0127",
     email: "kristin@facebook.com",
