@@ -1,10 +1,11 @@
 // import React, { lazy } from "react";
-import React, { lazy, useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 // import { Route, Routes, Navigate } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import Layout from "./components/Layout/Layout";
+import Loader from "./components/Loader/Loader";
 
 const Dashboard = lazy(() => import("./components/Dashboard"));
 const Product = lazy(() => import("./components/Product"));
@@ -55,33 +56,37 @@ function App() {
   }, [selectedCategory, navigate]);
 
   return (
-    <div className="page_container">
-      <Sidebar
-        categories={categories}
-        onSelectedCategory={handleSelectedCategory}
-        selectedCategory={selectedCategory}
-      />
-      <div className="page_category">
-        <p className="page_category_greeting">Hello Evano 👋🏼,</p>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            {/* <Route index element={<Layout />}></Route> */}
-            <Route index element={<Dashboard />} />
-            {/* <Route
+    <>
+      <Suspense fallback={<Loader />}>
+        <div className="page_container">
+          <Sidebar
+            categories={categories}
+            onSelectedCategory={handleSelectedCategory}
+            selectedCategory={selectedCategory}
+          />
+          <div className="page_category">
+            <p className="page_category_greeting">Hello Evano 👋🏼,</p>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Layout />}></Route>
+                {/* <Route index element={<Dashboard />} /> */}
+                {/* <Route
           path="/:category"
           element={getCategoryComponent(selectedCategory)}
         ></Route> */}
-            <Route path="dashboards" element={<Dashboard />} />
-            <Route path="product" element={<Product />} />
-            <Route path="customers" element={<Customers />} />
-            <Route path="income" element={<Income />} />
-            <Route path="promote" element={<Promote />} />
-            <Route path="help" element={<Help />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </div>
-    </div>
+                <Route path="dashboards" element={<Dashboard />} />
+                <Route path="product" element={<Product />} />
+                <Route path="customers" element={<Customers />} />
+                <Route path="income" element={<Income />} />
+                <Route path="promote" element={<Promote />} />
+                <Route path="help" element={<Help />} />
+              </Route>
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </div>
+        </div>
+      </Suspense>
+    </>
   );
 }
 
