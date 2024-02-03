@@ -24,9 +24,9 @@
 <img src="./public/Dashboard_pagination_search.webp">
 
 <h3 align="center">Mobile version</h3>
+Також існує мобільна версія сторінки.
 <img src="./public/Dashboard_mobile1.webp">
 <img src="./public/Dashboard_mobile2.webp">
-Також існує мобільна версія сторінки.
 
 <img src="./public/Dashboard_mobile_burger.webp">
 Тут боковий SideBar замінений для зручності використання бургер-меню з окремим модальним вікном, яке закривається при натисканні на кнопку закриття, при виборі категорії або натисканні поза межами вікна.

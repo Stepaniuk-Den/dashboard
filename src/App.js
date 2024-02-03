@@ -13,7 +13,7 @@ const Help = lazy(() => import("./components/Help"));
 
 function App() {
   const categories = [
-    "Dashboard",
+    "Dashboards",
     "Product",
     "Customers",
     "Income",

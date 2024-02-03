@@ -41,7 +41,7 @@ const SidebarList = ({
 
   const getCategoryIcon = (category) => {
     switch (category) {
-      case "Dashboard":
+      case "Dashboards":
         return Icons(category);
       case "Product":
         return IconsBroken(category);
@@ -76,7 +76,7 @@ const SidebarList = ({
           >
             {getCategoryIcon(category)}
             {category}
-            {category !== "Dashboard" && (
+            {category !== "Dashboards" && (
               <svg width="24" height="24" className="sidebar_chevron">
                 {category === selectedCategory ? (
                   <use href={Icon + `#icon-chevron-white`} />
