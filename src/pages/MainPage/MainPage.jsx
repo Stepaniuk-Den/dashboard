@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import { Outlet } from "react-router-dom";
 
 const MainPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -32,6 +33,7 @@ const MainPage = () => {
       />
       <div className="page_category">
         <p className="page_category_greeting">Hello Evano 👋🏼,</p>
+        <Outlet />
       </div>
     </div>
   );
