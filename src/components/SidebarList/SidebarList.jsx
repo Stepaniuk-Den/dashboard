@@ -41,17 +41,17 @@ const SidebarList = ({
 
   const getCategoryIcon = (category) => {
     switch (category) {
-      case "dashboards":
+      case "Dashboard":
         return Icons(category);
-      case "product":
+      case "Product":
         return IconsBroken(category);
-      case "customers":
+      case "Customers":
         return IconsBroken(category);
-      case "income":
+      case "Income":
         return Icons(category);
-      case "promote":
+      case "Promote":
         return IconsBroken(category);
-      case "help":
+      case "Help":
         return IconsBroken(category);
       default:
         return null;
@@ -68,7 +68,6 @@ const SidebarList = ({
       {categories.map((category) => (
         <li key={category} className="sidebar_item">
           <NavLink
-            // to={`/${category}`}
             to={category}
             onClick={() => handleClickClose(category)}
             className={({ isActive }) => {
@@ -77,7 +76,7 @@ const SidebarList = ({
           >
             {getCategoryIcon(category)}
             {category}
-            {category !== "dashboards" && (
+            {category !== "Dashboard" && (
               <svg width="24" height="24" className="sidebar_chevron">
                 {category === selectedCategory ? (
                   <use href={Icon + `#icon-chevron-white`} />

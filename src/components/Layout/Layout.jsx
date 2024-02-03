@@ -2,7 +2,6 @@ import React, { Suspense, useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import { Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
-// import MainPage from "../../pages/MainPage";
 
 const Layout = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -10,12 +9,12 @@ const Layout = () => {
   const navigate = useNavigate();
 
   const categories = [
-    "dashboards",
-    "product",
-    "customers",
-    "income",
-    "promote",
-    "help",
+    "Dashboard",
+    "Product",
+    "Customers",
+    "Income",
+    "Promote",
+    "Help",
   ];
 
   const handleSelectedCategory = (category) => {
