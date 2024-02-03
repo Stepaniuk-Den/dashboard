@@ -69,8 +69,8 @@ function App() {
           </div>
         </div> */}
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<MainPage />} />
+        <Route path="/" element={<Layout />} />
+        <Route index element={<MainPage />}>
           {/* <Route index element={<Dashboard />} /> */}
           {/* <Route
           path="/:category"
@@ -82,8 +82,8 @@ function App() {
           <Route path="income" element={<Income />} />
           <Route path="promote" element={<Promote />} />
           <Route path="help" element={<Help />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
   );
