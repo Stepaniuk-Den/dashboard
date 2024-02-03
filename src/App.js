@@ -1,7 +1,7 @@
-// import React, { Suspense, lazy, useEffect, useState } from "react";
-import React, { Suspense, lazy, useState } from "react";
-// import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-import { Route, Routes, Navigate } from "react-router-dom";
+import React, { Suspense, lazy, useEffect, useState } from "react";
+// import React, { Suspense, lazy, useState } from "react";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+// import { Route, Routes, Navigate } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import Layout from "./components/Layout/Layout";
@@ -24,7 +24,7 @@ function App() {
     "help",
   ];
   const [selectedCategory, setSelectedCategory] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSelectedCategory = (category) => {
     setSelectedCategory(category);
@@ -49,11 +49,11 @@ function App() {
   //   }
   // };
 
-  // useEffect(() => {
-  //   if (!selectedCategory) {
-  //     navigate("/");
-  //   }
-  // }, [selectedCategory, navigate]);
+  useEffect(() => {
+    if (!selectedCategory) {
+      navigate("/");
+    }
+  }, [selectedCategory, navigate]);
 
   return (
     <>
@@ -66,25 +66,25 @@ function App() {
           />
           <div className="page_category">
             <p className="page_category_greeting">Hello Evano 👋🏼,</p>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Layout />} />
-                {/* <Route index element={<Dashboard />} /> */}
-                {/* <Route
+          </div>
+        </div>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Layout />} />
+            {/* <Route index element={<Dashboard />} /> */}
+            {/* <Route
           path="/:category"
           element={getCategoryComponent(selectedCategory)}
         ></Route> */}
-                <Route path="/dashboards" element={<Dashboard />} />
-                <Route path="/product" element={<Product />} />
-                <Route path="/customers" element={<Customers />} />
-                <Route path="/income" element={<Income />} />
-                <Route path="/promote" element={<Promote />} />
-                <Route path="/help" element={<Help />} />
-              </Route>
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </div>
-        </div>
+            <Route path="/dashboards" element={<Dashboard />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/income" element={<Income />} />
+            <Route path="/promote" element={<Promote />} />
+            <Route path="/help" element={<Help />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </Suspense>
     </>
   );
