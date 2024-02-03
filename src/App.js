@@ -65,8 +65,8 @@ function App() {
     //     <p className="page_category_greeting">Hello Evano 👋🏼,</p>
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Layout />}></Route>
-        {/* <Route index element={<Dashboard />} /> */}
+        {/* <Route index element={<Layout />}></Route> */}
+        <Route index element={<Dashboard />} />
         {/* <Route
           path="/:category"
           element={getCategoryComponent(selectedCategory)}
