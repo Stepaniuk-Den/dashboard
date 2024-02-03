@@ -68,7 +68,7 @@ const SidebarList = ({
       {categories.map((category) => (
         <li key={category} className="sidebar_item">
           <NavLink
-            to={`/${category}`}
+            to={`${category}`}
             onClick={() => handleClickClose(category)}
             className={({ isActive }) => {
               return isActive ? "active_link" : "inactive_link";
