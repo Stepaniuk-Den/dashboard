@@ -82,8 +82,8 @@ function App() {
             <Route path="/income" element={<Income />} />
             <Route path="/promote" element={<Promote />} />
             <Route path="/help" element={<Help />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
-          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
     </>
