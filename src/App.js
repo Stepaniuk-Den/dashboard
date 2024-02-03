@@ -7,7 +7,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 // import Loader from "./components/Loader/Loader";
 
-const MainPage = lazy(() => import("./pages/MainPage"));
+// const MainPage = lazy(() => import("./pages/MainPage"));
 const Dashboard = lazy(() => import("./components/Dashboard"));
 const Product = lazy(() => import("./components/Product"));
 const Customers = lazy(() => import("./components/Customers"));
@@ -70,7 +70,7 @@ function App() {
         </div> */}
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<MainPage />} />
+          {/* <Route index element={<MainPage />} /> */}
           {/* <Route index element={<Dashboard />} /> */}
           {/* <Route
           path="/:category"
