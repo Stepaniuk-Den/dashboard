@@ -3,7 +3,7 @@ import React, { lazy } from "react";
 // import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { Route, Routes, Navigate } from "react-router-dom";
 
-// import Sidebar from "./components/Sidebar/Sidebar";
+import Sidebar from "./components/Sidebar/Sidebar";
 import Layout from "./components/Layout/Layout";
 
 const Dashboard = lazy(() => import("./components/Dashboard"));
@@ -55,33 +55,33 @@ function App() {
   // }, [selectedCategory, navigate]);
 
   return (
-    // <div className="page_container">
-    //   <Sidebar
-    //     categories={categories}
-    //     onSelectedCategory={handleSelectedCategory}
-    //     selectedCategory={selectedCategory}
-    //   />
-    //   <div className="page_category">
-    //     <p className="page_category_greeting">Hello Evano 👋🏼,</p>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        {/* <Route index element={<Layout />}></Route> */}
-        <Route index element={<Dashboard />} />
-        {/* <Route
+    <div className="page_container">
+      <Sidebar
+      // categories={categories}
+      // onSelectedCategory={handleSelectedCategory}
+      // selectedCategory={selectedCategory}
+      />
+      <div className="page_category">
+        <p className="page_category_greeting">Hello Evano 👋🏼,</p>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            {/* <Route index element={<Layout />}></Route> */}
+            <Route index element={<Dashboard />} />
+            {/* <Route
           path="/:category"
           element={getCategoryComponent(selectedCategory)}
         ></Route> */}
-        <Route path="/Dashboards" element={<Dashboard />} />
-        <Route path="/Product" element={<Product />} />
-        <Route path="/Customers" element={<Customers />} />
-        <Route path="/Income" element={<Income />} />
-        <Route path="/Promote" element={<Promote />} />
-        <Route path="/Help" element={<Help />} />
-      </Route>
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-    //   </div>
-    // </div>
+            <Route path="/dashboards" element={<Dashboard />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/income" element={<Income />} />
+            <Route path="/promote" element={<Promote />} />
+            <Route path="/help" element={<Help />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 
