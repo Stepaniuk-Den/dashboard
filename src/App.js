@@ -1,12 +1,13 @@
-import React, { Suspense, lazy, useEffect, useState } from "react";
-// import React, { Suspense, lazy, useState } from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-// import { Route, Routes, Navigate } from "react-router-dom";
+// import React, { Suspense, lazy, useEffect, useState } from "react";
+import React, { Suspense, lazy } from "react";
+// import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
-import Sidebar from "./components/Sidebar/Sidebar";
+// import Sidebar from "./components/Sidebar/Sidebar";
 import Layout from "./components/Layout/Layout";
 import Loader from "./components/Loader/Loader";
 
+const MainPage = lazy(() => import("./pages/MainPage"));
 const Dashboard = lazy(() => import("./components/Dashboard"));
 const Product = lazy(() => import("./components/Product"));
 const Customers = lazy(() => import("./components/Customers"));
@@ -15,20 +16,20 @@ const Promote = lazy(() => import("./components/Promote"));
 const Help = lazy(() => import("./components/Help"));
 
 function App() {
-  const categories = [
-    "dashboards",
-    "product",
-    "customers",
-    "income",
-    "promote",
-    "help",
-  ];
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const navigate = useNavigate();
+  // const categories = [
+  //   "dashboards",
+  //   "product",
+  //   "customers",
+  //   "income",
+  //   "promote",
+  //   "help",
+  // ];
+  // const [selectedCategory, setSelectedCategory] = useState("");
+  // const navigate = useNavigate();
 
-  const handleSelectedCategory = (category) => {
-    setSelectedCategory(category);
-  };
+  // const handleSelectedCategory = (category) => {
+  //   setSelectedCategory(category);
+  // };
 
   // const getCategoryComponent = (category) => {
   //   switch (category) {
@@ -49,16 +50,16 @@ function App() {
   //   }
   // };
 
-  useEffect(() => {
-    if (!selectedCategory) {
-      navigate("/");
-    }
-  }, [selectedCategory, navigate]);
+  // useEffect(() => {
+  //   if (!selectedCategory) {
+  //     navigate("/");
+  //   }
+  // }, [selectedCategory, navigate]);
 
   return (
     <>
       <Suspense fallback={<Loader />}>
-        <div className="page_container">
+        {/* <div className="page_container">
           <Sidebar
             categories={categories}
             onSelectedCategory={handleSelectedCategory}
@@ -67,10 +68,10 @@ function App() {
           <div className="page_category">
             <p className="page_category_greeting">Hello Evano 👋🏼,</p>
           </div>
-        </div>
+        </div> */}
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Layout />} />
+            <Route index element={<MainPage />} />
             {/* <Route index element={<Dashboard />} /> */}
             {/* <Route
           path="/:category"
