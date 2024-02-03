@@ -1,11 +1,13 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 // import MainPage from "../../pages/MainPage";
 
 const Layout = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
+
+  const navigate = useNavigate();
 
   const categories = [
     "dashboards",
@@ -19,6 +21,13 @@ const Layout = () => {
   const handleSelectedCategory = (category) => {
     setSelectedCategory(category);
   };
+
+  useEffect(() => {
+    if (!selectedCategory) {
+      navigate("/");
+    }
+  }, [selectedCategory, navigate]);
+
   return (
     <>
       <Suspense fallback={<Loader />}>
