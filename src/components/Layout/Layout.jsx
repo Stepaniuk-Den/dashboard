@@ -33,7 +33,6 @@ const Layout = () => {
             <Outlet />
           </div>
         </div>
-        <Outlet />
       </Suspense>
     </>
   );
