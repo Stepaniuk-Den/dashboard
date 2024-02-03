@@ -69,8 +69,8 @@ function App() {
           </div>
         </div> */}
       <Routes>
-        <Route path="/" element={<Layout />} />
-        <Route index element={<MainPage />}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
           {/* <Route index element={<Dashboard />} /> */}
           {/* <Route
           path="/:category"
