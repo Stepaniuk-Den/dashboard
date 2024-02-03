@@ -1,7 +1,7 @@
-// import React, { lazy } from "react";
-import React, { Suspense, lazy, useEffect, useState } from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-// import { Route, Routes, Navigate } from "react-router-dom";
+// import React, { Suspense, lazy, useEffect, useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
+// import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import Layout from "./components/Layout/Layout";
@@ -24,7 +24,7 @@ function App() {
     "help",
   ];
   const [selectedCategory, setSelectedCategory] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSelectedCategory = (category) => {
     setSelectedCategory(category);
