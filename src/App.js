@@ -71,12 +71,12 @@ function App() {
           path="/:category"
           element={getCategoryComponent(selectedCategory)}
         ></Route> */}
-            <Route path="/dashboards" element={<Dashboard />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/income" element={<Income />} />
-            <Route path="/promote" element={<Promote />} />
-            <Route path="/help" element={<Help />} />
+            <Route path="dashboards" element={<Dashboard />} />
+            <Route path="product" element={<Product />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="income" element={<Income />} />
+            <Route path="promote" element={<Promote />} />
+            <Route path="help" element={<Help />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
