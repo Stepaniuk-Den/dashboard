@@ -29,7 +29,7 @@ function App() {
 
   const getCategoryComponent = (category) => {
     switch (category) {
-      case "Dashboard":
+      case "Dashboards":
         return <Dashboard />;
       case "Product":
         return <Product />;
@@ -64,6 +64,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Layout />} />
+            {/* <Route index element={<Dashboard />} /> */}
             <Route
               path="/:category"
               element={getCategoryComponent(selectedCategory)}
